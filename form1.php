@@ -1,3 +1,6 @@
+<?php
+   require 'aws.phar';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
