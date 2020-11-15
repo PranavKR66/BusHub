@@ -1,3 +1,6 @@
+<?php
+   require 'aws.phar';
+?>
 <?php 
 ?>
 <style>
