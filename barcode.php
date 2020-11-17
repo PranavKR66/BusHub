@@ -57,9 +57,11 @@ span { font-size: 13px;}
     		$fileformat = '.png';
 
 		$data = ['index' => $index,'email' => $email,'name' => $name,'phone' => $phone,];
-		$targetPath = "images/bushub.png";
+		#$targetPath = "images/bushub.png";
+		$url =  'https://media.geeksforgeeks.org/wp-content/uploads/geeksforgeeks-6-1.png';
+		$img = file_get_contents($url);
 		$dynamodb->putItem(['TableName' => $tableName,'Item'      => $marshaler->marshalItem($data)]);
-		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => fopen($targetPath, 'rb'),'ACL'    => 'public-read',]);
+		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $img,'ACL'    => 'public-read',]);
 
 		?>
 	</div>
