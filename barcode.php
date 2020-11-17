@@ -57,9 +57,9 @@ span { font-size: 13px;}
     		$fileformat = '.png';
 
 		$data = ['index' => $index,'email' => $email,'name' => $name,'phone' => $phone,];
-
+		$targetPath = "images/bushub.png";
 		$dynamodb->putItem(['TableName' => $tableName,'Item'      => $marshaler->marshalItem($data)]);
-		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $imageData,'ACL'    => 'public-read',]);
+		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => fopen($targetPath, 'rb'),'ACL'    => 'public-read',]);
 
 		?>
 	</div>
