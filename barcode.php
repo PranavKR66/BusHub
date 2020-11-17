@@ -56,18 +56,13 @@ span { font-size: 13px;}
 		];
 
 		$result = $dynamodb->scan($params);
-    	$count = current($result)['Count'];
+		$count = current($result)['Count'];
 
-    	$index = $count + 1;
+		$index = $count + 1;
 
-    	$bucketName = 'bushubbucket';
-    	$fileformat = '.png';
-		#$s3->putObject([
-	    #    'Bucket' => $bucketName,
-	    #    'Key'    => (string)$index.$fileformat,
-	    #    'Body'   => $imageData,
-	    #    'ACL'    => 'public-read',
-	    #]);
+		$bucketName = 'bushubbucket';
+		$fileformat = '.png';
+		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $imageData,'ACL'    => 'public-read',]);
 
 		$data = [
 			'index' => $index,
