@@ -38,11 +38,7 @@ span { font-size: 13px;}
 		$name  = $_POST['name'];
 		$phone = $_POST['phone'];
 		#echo "<p class='inline'><span ><b>Email: $email</b></span>".bar128(stripcslashes($_POST['phone']))."<span ><b>NAME: ".$name." </b><span></p>&nbsp&nbsp&nbsp&nbsp";
-		$targetPath = "barcodelist/";
     
-	    if (! is_dir($targetPath)) {
-	        mkdir($targetPath, 0777, true);
-	    }
 		$barcode = new \Com\Tecnick\Barcode\Barcode();
 		$bobj = $barcode->getBarcodeObj('QRCODE,H', "{$email}", -4, -4, 'black', array(0,0,0,0));
 
