@@ -46,7 +46,7 @@ span { font-size: 13px;}
 		$barcode = new \Com\Tecnick\Barcode\Barcode();
 		$bobj = $barcode->getBarcodeObj('QRCODE,H', "{$email}", -4, -4, 'black', array(0,0,0,0));
 
-	    	$imageData = $bobj->getPngData();
+	    	#$imageData = $bobj->getPngData();
 
 		$tableName = 'bushubtab';
 
