@@ -59,7 +59,13 @@ span { font-size: 13px;}
 		$data = ['index' => $index,'email' => $email,'name' => $name,'phone' => $phone,];
 		$dynamodb->putItem(['TableName' => $tableName,'Item'      => $marshaler->marshalItem($data)]);
 		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $imageData,'ACL'    => 'public-read',]);
-
+		
+		echo "
+		<!DOCTYPE html>
+		<html>
+			<h1 style = \"text-align: center;\">Congratulation! Your Ticket Has Been Confirmed!</h1>
+			<p><img alt=\"Embedded Image\" src=\"data:image/png;base64,".base64_encode($imageData)."\" /></p>
+		</html>";
 		?>
 	</div>
 	<h1 style = "text-align: center;">Congratulation! Your Ticket Has Been Confirmed!</h1>
