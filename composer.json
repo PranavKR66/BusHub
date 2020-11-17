@@ -1,5 +1,6 @@
 {
     "require": {
-        "aws/aws-sdk-php": "^3.161"
+        "aws/aws-sdk-php": "^3.161",
+        "tecnickcom/tc-lib-barcode": "1.15"
     }
 }

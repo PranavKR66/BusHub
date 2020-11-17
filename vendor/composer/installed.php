@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '645c30074213b09317abf139c51c7576a24a7af4',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '645c30074213b09317abf139c51c7576a24a7af4',
     ),
     'aws/aws-sdk-php' => 
     array (
@@ -114,6 +114,24 @@
       array (
       ),
       'reference' => '39d483bdf39be819deabf04ec872eb0b2410b531',
+    ),
+    'tecnickcom/tc-lib-barcode' => 
+    array (
+      'pretty_version' => '1.15.0',
+      'version' => '1.15.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a64455fd9b7068d3b7cba31410f9d34de4de78fe',
+    ),
+    'tecnickcom/tc-lib-color' => 
+    array (
+      'pretty_version' => '1.12.15',
+      'version' => '1.12.15.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2f4860cbac4d58c210b6bec4c5806906278962c1',
     ),
   ),
 );

@@ -1,13 +1,7 @@
 <?php
-   require 'vendor/autoload.php';
-
-   $credentials = new Aws\Credentials\Credentials('AKIASH7NCV5HL2KLXHZF', '9tJsLuyDuFMn0Q9lymqKjUV/xsO7q8itgOiz8SR2');
-
-  $s3 = new Aws\S3\S3Client([
-      'version'     => 'latest',
-      'region'      => 'us-east-1',
-      'credentials' => $credentials
-]);
+   require 'aws.phar';
+?>
+<?php 
 ?>
 <style>
 div.b128{
