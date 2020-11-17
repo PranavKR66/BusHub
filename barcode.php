@@ -68,6 +68,5 @@ span { font-size: 13px;}
 		</html>";
 		?>
 	</div>
-	<h1 style = "text-align: center;">Congratulation! Your Ticket Has Been Confirmed!</h1>
 </body>
 </html>
