@@ -43,7 +43,7 @@ span { font-size: 13px;}
 	    if (! is_dir($targetPath)) {
 	        mkdir($targetPath, 0777, true);
 	    }
-		#$barcode = new \Com\Tecnick\Barcode\Barcode();
+		$barcode = new \Com\Tecnick\Barcode\Barcode();
 		#$bobj = $barcode->getBarcodeObj('QRCODE,H', "{$email}", -4, -4, 'black', array(
 	    #    0,
 	    #    0,
