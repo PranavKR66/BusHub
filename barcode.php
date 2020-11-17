@@ -62,10 +62,10 @@ span { font-size: 13px;}
 
 		$bucketName = 'bushubbucket';
 		$fileformat = '.png';
-		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $imageData,'ACL'    => 'public-read',]);
+		#$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $imageData,'ACL'    => 'public-read',]);
 
 		$data = [
-			'index' => $index,
+		    'index' => $index,
 		    'email' => $email,
 		    'name' => $name,
 		    'phone' => $phone,
