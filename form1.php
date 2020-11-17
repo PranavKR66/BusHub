@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PHP Barcode Generator Example</title>
+  <title>Ticket Barcode</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
 
 <div class="container">
   <div style="margin: 10%;">
-  	<h2 class="text-center">PHP BARCODE GENERATOR</h2>
+  	<h2 class="text-center">Ticket Barcode</h2>
   	<form class="form-horizontal" method="post" action="barcode.php" target="_blank">
   	<div class="form-group">
       <label class="control-label col-sm-2" for="name">Name:</label>
