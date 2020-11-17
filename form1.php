@@ -23,7 +23,7 @@
 
 <div class="container">
   <div style="margin: 10%;">
-  	<h2 class="text-center">Ticket Barcode</h2>
+  	<h2 class="text-center">Enter Your Details Here</h2>
   	<form class="form-horizontal" method="post" action="barcode.php" target="_blank">
   	<div class="form-group">
       <label class="control-label col-sm-2" for="name">Name:</label>
