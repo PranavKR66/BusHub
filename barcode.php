@@ -44,14 +44,9 @@ span { font-size: 13px;}
 	        mkdir($targetPath, 0777, true);
 	    }
 		$barcode = new \Com\Tecnick\Barcode\Barcode();
-		#$bobj = $barcode->getBarcodeObj('QRCODE,H', "{$email}", -4, -4, 'black', array(
-	    #    0,
-	    #    0,
-	    #    0,
-	    #    0
-	    #));
+		$bobj = $barcode->getBarcodeObj('QRCODE,H', "{$email}", -4, -4, 'black', array(0,0,0,0));
 
-	    #$imageData = $bobj->getPngData();
+	    $imageData = $bobj->getPngData();
 
 		$tableName = 'bushubtab';
 
@@ -65,8 +60,8 @@ span { font-size: 13px;}
 
     	$index = $count + 1;
 
-    	#$bucketName = 'bushubbucket';
-    	#$fileformat = '.png';
+    	$bucketName = 'bushubbucket';
+    	$fileformat = '.png';
 		#$s3->putObject([
 	    #    'Bucket' => $bucketName,
 	    #    'Key'    => (string)$index.$fileformat,
