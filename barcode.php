@@ -38,34 +38,28 @@ span { font-size: 13px;}
 		$name  = $_POST['name'];
 		$phone = $_POST['phone'];
 		#echo "<p class='inline'><span ><b>Email: $email</b></span>".bar128(stripcslashes($_POST['phone']))."<span ><b>NAME: ".$name." </b><span></p>&nbsp&nbsp&nbsp&nbsp";
-    
+		
 		$barcode = new \Com\Tecnick\Barcode\Barcode();
-		$bobj = $barcode->getBarcodeObj('QRCODE,H', "{$email}", -4, -4, 'black', array(0,0,0,0));
+		$bobj = $barcode->getBarcodeObj('C128C', "0123456789", -3, -50, 'black', array(0, 0, 0, 0));
 
-	    	$imageData = $bobj->getPngData();
+	        $imageData = $bobj->getPngData();
 
 		$tableName = 'bushubtab';
 
-		$params = [
-		    'TableName' => $tableName,
-		    'Select' => 'COUNT'
-		];
+		$params = ['TableName' => $tableName,'Select' => 'COUNT'];
 
 		$result = $dynamodb->scan($params);
-		$count = current($result)['Count'];
+    	        $count = current($result)['Count'];
 
-		$index = $count + 1;
+    		$index = $count + 1;
 
-		$bucketName = 'bushubbucket';
-		$fileformat = '.png';
+    		$bucketName = 'bushubbucket';
+    		$fileformat = '.png';
+		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $imageData,'ACL'    => 'public-read',]);
+
 		$data = ['index' => $index,'email' => $email,'name' => $name,'phone' => $phone,];
 
-		$dynamodb->putItem([
-		    'TableName' => $tableName,
-		    'Item'      => $marshaler->marshalItem($data)
-		]);
-		
-		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $imageData,'ACL'    => 'public-read',]);
+		$dynamodb->putItem(['TableName' => $tableName,'Item'      => $marshaler->marshalItem($data)]);
 
 		?>
 	</div>
