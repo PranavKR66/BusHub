@@ -30,7 +30,7 @@ span { font-size: 13px;}
     }
 </style>
 </head>
-<body onload="window.print();">
+<body>
 	<div style="margin-left: 5%">
 		<?php
 		#include 'barcode128.php';
@@ -40,9 +40,6 @@ span { font-size: 13px;}
 		#echo "<p class='inline'><span ><b>Email: $email</b></span>".bar128(stripcslashes($_POST['phone']))."<span ><b>NAME: ".$name." </b><span></p>&nbsp&nbsp&nbsp&nbsp";
 		
 		$barcode = new \Com\Tecnick\Barcode\Barcode();
-		$bobj = $barcode->getBarcodeObj('C128C', "0123456789", -3, -50, 'black', array(0, 0, 0, 0));
-
-	        $imageData = $bobj->getPngData();
 
 		$tableName = 'bushubtab';
 
@@ -52,18 +49,19 @@ span { font-size: 13px;}
     	        $count = current($result)['Count'];
 
     		$index = $count + 1;
+		
+		$bobj = $barcode->getBarcodeObj('C128C', substr((string)$index.(string)$phone,0,6), -3, -50, 'black', array(0, 0, 0, 0));
+	        $imageData = $bobj->getPngData();
 
     		$bucketName = 'bushubbucket';
     		$fileformat = '.png';
 
 		$data = ['index' => $index,'email' => $email,'name' => $name,'phone' => $phone,];
-		#$targetPath = "images/bushub.png";
-		$url =  'https://media.geeksforgeeks.org/wp-content/uploads/geeksforgeeks-6-1.png';
-		$img = file_get_contents($url);
 		$dynamodb->putItem(['TableName' => $tableName,'Item'      => $marshaler->marshalItem($data)]);
-		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $img,'ACL'    => 'public-read',]);
+		$s3->putObject(['Bucket' => $bucketName,'Key'    => (string)$index.$fileformat,'Body'   => $imageData,'ACL'    => 'public-read',]);
 
 		?>
 	</div>
+	<h1 style = "text-align: center;">Congratulation! Your Ticket Has Been Confirmed!</h1>
 </body>
 </html>
